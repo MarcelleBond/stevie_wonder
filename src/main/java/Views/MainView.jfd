@@ -1,0 +1,43 @@
+JFDML JFormDesigner: "7.0.5.1.409" Java: "11.0.12" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq {par l {seq {space :0:0:x, comp GetAllTextButton:::p::p, space :::p, comp AddImagesButton:::p::p}, comp MainScrollPane::l:::x}, space :::p}}"
+			"$verticalGroup": "par l {seq t {space :::p, comp MainScrollPane::::472:x, space :p:12:p, par b {comp AddImagesButton::b:p::p, comp GetAllTextButton::b:p::p}}}"
+		} ) {
+			name: "this"
+			"maximumSize": new java.awt.Dimension( 1280, 800 )
+			"minimumSize": new java.awt.Dimension( 785, 520 )
+			"preferredSize": new java.awt.Dimension( 1280, 800 )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "AddImagesButton"
+				"text": "ADD IMAGES"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "AddImags", true ) )
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "MainScrollPane"
+				"border": sfield com.jformdesigner.model.FormObject NULL_VALUE
+				"maximumSize": new java.awt.Dimension( 1280, 32767 )
+				"inheritsPopupMenu": true
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
+					"rows": 0
+					"columns": 4
+					"vgap": 10
+					"hgap": 10
+				} ) {
+					name: "ListPane"
+					"componentOrientation": sfield java.awt.ComponentOrientation LEFT_TO_RIGHT
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "GetAllTextButton"
+				"text": "GET ALL TEXT"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 785, 520 )
+		} )
+	}
+}

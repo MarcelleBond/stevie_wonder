@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="11.0.12" class="java.beans.XMLDecoder">
+ <object class="com.jformdesigner.model.FormModel">
+  <void property="contentType">
+   <string>form/swing</string>
+  </void>
+  <void property="root">
+   <object class="com.jformdesigner.model.FormRoot">
+    <void method="add">
+     <object class="com.jformdesigner.model.FormContainer">
+      <string>javax.swing.JPanel</string>
+      <object class="com.jformdesigner.model.FormLayoutManager">
+       <class>org.jdesktop.layout.GroupLayout</class>
+       <void method="setProperty">
+        <string>$horizontalGroup</string>
+        <string>par l {seq l {space :::p, par l {comp TextScrollPane:::::x, comp ImageView::l:p::p, seq l {par l {comp Sizelabel::l:p:60:p, comp ImageTextlabel:::p:60:p, comp NameLable:::p:78:p}, space :::p, par l {comp ImageSizeValue::l:p::p, comp ImageNameValue::l:p::p, seq l {space :p:126:p, comp GetTextButton:::p:78:p}}}}, space :::x}}</string>
+       </void>
+       <void method="setProperty">
+        <string>$verticalGroup</string>
+        <string>par l {seq l {space :p::p, comp ImageView:::p:188:p, space :p::p, par l {comp NameLable:::p:16:p, comp ImageNameValue:::p::p}, space :p::p, par b {comp Sizelabel::b:p::p, comp ImageSizeValue::b:p::p}, space u:p::p, par l {comp ImageTextlabel:::p::p, comp GetTextButton:::p:24:p}, space :::p, comp TextScrollPane::::114:x, space :::p}}</string>
+       </void>
+      </object>
+      <void method="setProperty">
+       <string>maximumSize</string>
+       <object class="java.awt.Dimension">
+        <int>300</int>
+        <int>400</int>
+       </object>
+      </void>
+      <void method="setProperty">
+       <string>minimumSize</string>
+       <object class="java.awt.Dimension">
+        <int>150</int>
+        <int>200</int>
+       </object>
+      </void>
+      <void method="setProperty">
+       <string>preferredSize</string>
+       <object class="java.awt.Dimension">
+        <int>300</int>
+        <int>400</int>
+       </object>
+      </void>
+      <void method="setProperty">
+       <string>alignmentX</string>
+       <float>0.0</float>
+      </void>
+      <void method="setProperty">
+       <string>alignmentY</string>
+       <float>0.0</float>
+      </void>
+      <void property="name">
+       <string>this</string>
+      </void>
+      <void method="add">
+       <object class="com.jformdesigner.model.FormComponent">
+        <string>javax.swing.JLabel</string>
+        <void method="setProperty">
+         <string>text</string>
+         <string>Image Name</string>
+        </void>
+        <void method="setProperty">
+         <string>maximumSize</string>
+         <object class="java.awt.Dimension">
+          <int>78</int>
+          <int>16</int>
+         </object>
+        </void>
+        <void method="setProperty">
+         <string>preferredSize</string>
+         <object class="java.awt.Dimension">
+          <int>78</int>
+          <int>16</int>
+         </object>
+        </void>
+        <void method="setProperty">
+         <string>verifyInputWhenFocusTarget</string>
+         <boolean>false</boolean>
+        </void>
+        <void property="name">
+         <string>NameLable</string>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="com.jformdesigner.model.FormComponent">
+        <string>javax.swing.JLabel</string>
+        <void method="setProperty">
+         <string>text</string>
+         <string>Image Size</string>
+        </void>
+        <void method="setProperty">
+         <string>maximumSize</string>
+         <object class="java.awt.Dimension">
+          <int>78</int>
+          <int>16</int>
+         </object>
+        </void>
+        <void method="setProperty">
+         <string>preferredSize</string>
+         <object class="java.awt.Dimension">
+          <int>78</int>
+          <int>16</int>
+         </object>
+        </void>
+        <void property="name">
+         <string>Sizelabel</string>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="com.jformdesigner.model.FormComponent">
+        <string>javax.swing.JLabel</string>
+        <void method="setProperty">
+         <string>text</string>
+         <string>Image Text</string>
+        </void>
+        <void method="setProperty">
+         <string>maximumSize</string>
+         <object class="java.awt.Dimension">
+          <int>78</int>
+          <int>16</int>
+         </object>
+        </void>
+        <void method="setProperty">
+         <string>minimumSize</string>
+         <object class="java.awt.Dimension">
+          <int>78</int>
+          <int>16</int>
+         </object>
+        </void>
+        <void method="setProperty">
+         <string>preferredSize</string>
+         <object class="java.awt.Dimension">
+          <int>78</int>
+          <int>16</int>
+         </object>
+        </void>
+        <void property="name">
+         <string>ImageTextlabel</string>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="com.jformdesigner.model.FormComponent">
+        <string>javax.swing.JLabel</string>
+        <void method="setProperty">
+         <string>horizontalAlignment</string>
+         <int>11</int>
+        </void>
+        <void method="setProperty">
+         <string>maximumSize</string>
+         <object class="java.awt.Dimension">
+          <int>204</int>
+          <int>16</int>
+         </object>
+        </void>
+        <void method="setProperty">
+         <string>preferredSize</string>
+         <object class="java.awt.Dimension">
+          <int>204</int>
+          <int>16</int>
+         </object>
+        </void>
+        <void property="name">
+         <string>ImageNameValue</string>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="com.jformdesigner.model.FormComponent">
+        <string>javax.swing.JLabel</string>
+        <void method="setProperty">
+         <string>horizontalAlignment</string>
+         <int>11</int>
+        </void>
+        <void method="setProperty">
+         <string>maximumSize</string>
+         <object class="java.awt.Dimension">
+          <int>204</int>
+          <int>16</int>
+         </object>
+        </void>
+        <void method="setProperty">
+         <string>preferredSize</string>
+         <object class="java.awt.Dimension">
+          <int>204</int>
+          <int>16</int>
+         </object>
+        </void>
+        <void property="name">
+         <string>ImageSizeValue</string>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="com.jformdesigner.model.FormComponent">
+        <string>javax.swing.JLabel</string>
+        <void method="setProperty">
+         <string>horizontalAlignment</string>
+         <int>0</int>
+        </void>
+        <void method="setProperty">
+         <string>maximumSize</string>
+         <object class="java.awt.Dimension">
+          <int>288</int>
+          <int>188</int>
+         </object>
+        </void>
+        <void method="setProperty">
+         <string>preferredSize</string>
+         <object class="java.awt.Dimension">
+          <int>288</int>
+          <int>188</int>
+         </object>
+        </void>
+        <void property="name">
+         <string>ImageView</string>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="com.jformdesigner.model.FormComponent">
+        <string>javax.swing.JButton</string>
+        <void method="setProperty">
+         <string>text</string>
+         <string>Get Text</string>
+        </void>
+        <void method="setProperty">
+         <string>maximumSize</string>
+         <object class="java.awt.Dimension">
+          <int>78</int>
+          <int>24</int>
+         </object>
+        </void>
+        <void method="setProperty">
+         <string>minimumSize</string>
+         <object class="java.awt.Dimension">
+          <int>78</int>
+          <int>24</int>
+         </object>
+        </void>
+        <void method="setProperty">
+         <string>preferredSize</string>
+         <object class="java.awt.Dimension">
+          <int>78</int>
+          <int>24</int>
+         </object>
+        </void>
+        <void property="name">
+         <string>GetTextButton</string>
+        </void>
+        <void method="addEvent">
+         <object class="com.jformdesigner.model.FormEvent">
+          <string>java.awt.event.ActionListener</string>
+          <string>actionPerformed</string>
+          <string>GetText</string>
+          <boolean>true</boolean>
+         </object>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="com.jformdesigner.model.FormContainer">
+        <string>javax.swing.JScrollPane</string>
+        <object class="com.jformdesigner.model.FormLayoutManager">
+         <class>javax.swing.JScrollPane</class>
+        </object>
+        <void property="name">
+         <string>TextScrollPane</string>
+        </void>
+        <void method="add">
+         <object class="com.jformdesigner.model.FormComponent">
+          <string>javax.swing.JTextArea</string>
+          <void method="setProperty">
+           <string>lineWrap</string>
+           <boolean>true</boolean>
+          </void>
+          <void method="setProperty">
+           <string>font</string>
+           <object class="java.awt.Font">
+            <string>Segoe UI</string>
+            <int>0</int>
+            <int>12</int>
+           </object>
+          </void>
+          <void method="setProperty">
+           <string>text</string>
+           <string>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
+          </void>
+          <void property="name">
+           <string>ImageTextValue</string>
+          </void>
+         </object>
+        </void>
+       </object>
+      </void>
+     </object>
+     <object class="com.jformdesigner.model.FormLayoutConstraints">
+      <null/>
+      <void method="setProperty">
+       <string>location</string>
+       <object class="java.awt.Point">
+        <int>0</int>
+        <int>0</int>
+       </object>
+      </void>
+      <void method="setProperty">
+       <string>size</string>
+       <object class="java.awt.Dimension">
+        <int>300</int>
+        <int>400</int>
+       </object>
+      </void>
+     </object>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="11.0.12" class="java.beans.XMLDecoder">
+ <object class="com.jformdesigner.model.FormModel">
+  <void property="contentType">
+   <string>form/swing</string>
+  </void>
+  <void property="root">
+   <object class="com.jformdesigner.model.FormRoot">
+    <void method="add">
+     <object class="com.jformdesigner.model.FormContainer">
+      <string>javax.swing.JPanel</string>
+      <object class="com.jformdesigner.model.FormLayoutManager">
+       <class>org.jdesktop.layout.GroupLayout</class>
+       <void method="setProperty">
+        <string>$horizontalGroup</string>
+        <string>par l {seq {par l {comp ImageTextValue::t:::x, seq {space :::p, par l {seq {par l {comp NameLable::l:p:78:p, comp Sizelabel::l:p:60:p, comp ImageTextlabel:::p:60:p}, space :::p, par l {comp ImageNameValue::::204:x, comp ImageSizeValue::::204:x, seq t {space :0:126:x, comp GetTextButton:::p::p}}}, comp ImageView::l::288:x}}}, space :::p}}</string>
+       </void>
+       <void method="setProperty">
+        <string>$verticalGroup</string>
+        <string>par l {seq l {space :::p, comp ImageView:::p:188:p, space :::p, par b {comp NameLable::b:p::p, comp ImageNameValue::b:p::p}, space :::p, par b {comp Sizelabel::b:p::p, comp ImageSizeValue::b:p::p}, space u:::p, par l {comp ImageTextlabel:::p::p, comp GetTextButton:::p:24:p}, space :::p, comp ImageTextValue::::114:x, space :::p}}</string>
+       </void>
+      </object>
+      <void method="setProperty">
+       <string>maximumSize</string>
+       <object class="java.awt.Dimension">
+        <int>300</int>
+        <int>400</int>
+       </object>
+      </void>
+      <void method="setProperty">
+       <string>minimumSize</string>
+       <object class="java.awt.Dimension">
+        <int>150</int>
+        <int>200</int>
+       </object>
+      </void>
+      <void method="setProperty">
+       <string>preferredSize</string>
+       <object class="java.awt.Dimension">
+        <int>300</int>
+        <int>400</int>
+       </object>
+      </void>
+      <void method="setProperty">
+       <string>alignmentX</string>
+       <float>0.0</float>
+      </void>
+      <void method="setProperty">
+       <string>alignmentY</string>
+       <float>0.0</float>
+      </void>
+      <void property="name">
+       <string>this</string>
+      </void>
+      <void method="add">
+       <object class="com.jformdesigner.model.FormComponent">
+        <string>javax.swing.JLabel</string>
+        <void method="setProperty">
+         <string>text</string>
+         <string>Image Name</string>
+        </void>
+        <void property="name">
+         <string>NameLable</string>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="com.jformdesigner.model.FormComponent">
+        <string>javax.swing.JLabel</string>
+        <void method="setProperty">
+         <string>text</string>
+         <string>Image Size</string>
+        </void>
+        <void property="name">
+         <string>Sizelabel</string>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="com.jformdesigner.model.FormComponent">
+        <string>javax.swing.JLabel</string>
+        <void method="setProperty">
+         <string>text</string>
+         <string>Image Text</string>
+        </void>
+        <void property="name">
+         <string>ImageTextlabel</string>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="com.jformdesigner.model.FormComponent">
+        <string>javax.swing.JLabel</string>
+        <void property="name">
+         <string>ImageTextValue</string>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="com.jformdesigner.model.FormComponent">
+        <string>javax.swing.JLabel</string>
+        <void method="setProperty">
+         <string>horizontalAlignment</string>
+         <int>11</int>
+        </void>
+        <void property="name">
+         <string>ImageNameValue</string>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="com.jformdesigner.model.FormComponent">
+        <string>javax.swing.JLabel</string>
+        <void method="setProperty">
+         <string>horizontalAlignment</string>
+         <int>11</int>
+        </void>
+        <void property="name">
+         <string>ImageSizeValue</string>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="com.jformdesigner.model.FormComponent">
+        <string>javax.swing.JLabel</string>
+        <void method="setProperty">
+         <string>horizontalAlignment</string>
+         <int>0</int>
+        </void>
+        <void property="name">
+         <string>ImageView</string>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="com.jformdesigner.model.FormComponent">
+        <string>javax.swing.JButton</string>
+        <void method="setProperty">
+         <string>text</string>
+         <string>Get Text</string>
+        </void>
+        <void property="name">
+         <string>GetTextButton</string>
+        </void>
+       </object>
+      </void>
+     </object>
+     <object class="com.jformdesigner.model.FormLayoutConstraints">
+      <null/>
+      <void method="setProperty">
+       <string>location</string>
+       <object class="java.awt.Point">
+        <int>0</int>
+        <int>0</int>
+       </object>
+      </void>
+      <void method="setProperty">
+       <string>size</string>
+       <object class="java.awt.Dimension">
+        <int>300</int>
+        <int>400</int>
+       </object>
+      </void>
+     </object>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>
