@@ -30,7 +30,7 @@ public class MainView extends JPanel {
 		MainScrollPane.getViewport().add(ListPane);
 	}
 
-	private void AddImags(ActionEvent e) {
+	private void AddImages(ActionEvent e) {
 		if (fileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){
 			File[] files  = fileChooser.getSelectedFiles();
 			for (File file: files) {
@@ -55,14 +55,14 @@ public class MainView extends JPanel {
 		setMinimumSize(new Dimension(785, 520));
 		setPreferredSize(new Dimension(1280, 800));
 		setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border .EmptyBorder ( 0
-		, 0 ,0 , 0) ,  "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e" , javax. swing .border . TitledBorder. CENTER ,javax . swing. border .TitledBorder . BOTTOM
-		, new java. awt .Font ( "Dialo\u0067", java .awt . Font. BOLD ,12 ) ,java . awt. Color .red ) ,
+		, 0 ,0 , 0) ,  "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn" , javax. swing .border . TitledBorder. CENTER ,javax . swing. border .TitledBorder . BOTTOM
+		, new java. awt .Font ( "Dia\u006cog", java .awt . Font. BOLD ,12 ) ,java . awt. Color .red ) ,
 		 getBorder () ) );  addPropertyChangeListener( new java. beans .PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e
-		) { if( "borde\u0072" .equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;} } );
+		) { if( "\u0062ord\u0065r" .equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;} } );
 
 		//---- AddImagesButton ----
 		AddImagesButton.setText("ADD IMAGES");
-		AddImagesButton.addActionListener(e -> AddImags(e));
+		AddImagesButton.addActionListener(e -> AddImages(e));
 
 		//======== MainScrollPane ========
 		{

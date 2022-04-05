@@ -1,31 +1,22 @@
 package Models;
 
-import java.util.List;
-
-import com.google.cloud.vision.v1.AnnotateImageRequest;
-import com.google.cloud.vision.v1.AnnotateImageResponse;
-import com.google.cloud.vision.v1.BatchAnnotateImagesResponse;
-import com.google.cloud.vision.v1.EntityAnnotation;
-import com.google.cloud.vision.v1.Feature;
 import com.google.cloud.vision.v1.Image;
-import com.google.cloud.vision.v1.ImageAnnotatorClient;
+import com.google.cloud.vision.v1.*;
 import com.google.protobuf.ByteString;
+import lombok.NoArgsConstructor;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@NoArgsConstructor
 public class OCR {
-	public OCR(String FilePath) {
 
-	}
-
-	public OCR(List<String> FilePath) throws IOException {
+	public void GetText(String FilePath) throws IOException {
 		List<AnnotateImageRequest> requests = new ArrayList<>();
 
-		ByteString imgBytes = ByteString.readFrom(new FileInputStream(FilePath.get(0)));
+		ByteString imgBytes = ByteString.readFrom(new FileInputStream(FilePath));
 
 		Image img = Image.newBuilder().setContent(imgBytes).build();
 		Feature feat = Feature.newBuilder().setType(Feature.Type.TEXT_DETECTION).build();

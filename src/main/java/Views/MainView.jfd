@@ -1,4 +1,4 @@
-JFDML JFormDesigner: "7.0.5.1.409" Java: "11.0.12" encoding: "UTF-8"
+JFDML JFormDesigner: "7.0.5.1.409" Java: "11.0.13" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
@@ -14,7 +14,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "AddImagesButton"
 				"text": "ADD IMAGES"
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "AddImags", true ) )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "AddImages", true ) )
 			} )
 			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 				name: "MainScrollPane"

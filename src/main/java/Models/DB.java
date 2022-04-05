@@ -4,20 +4,86 @@ package Models;
 import lombok.NonNull;
 
 import java.io.FileInputStream;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Properties;
 
 public class DB {
 
+
 	private static DB _instance = null;
 	private String _sql;
 	private final String _url;
 	private final Connection _connection;
 	private Statement _statement;
+
+	public static DB GetInstance() throws Exception {
+		if (_instance == null)
+			_instance = new DB();
+		return _instance;
+	}
+
+	public int CreateTable(@NonNull String TableName, @NonNull HashMap<String, String> Fields) throws SQLException {
+		StringBuilder values = new StringBuilder();
+		int x = 1;
+		for (var key : Fields.entrySet()) {
+
+			values.append("%s %s".formatted(key.getKey(), key.getValue()));
+			if (x < Fields.size())
+				values.append(",");
+			x++;
+		}
+		this._sql = "CREATE TABLE IF NOT EXISTS %s (%s)".formatted(TableName, values.toString());
+		System.out.println(this._sql);
+		this._statement = this._connection.createStatement();
+		return this._statement.executeUpdate(this._sql);
+	}
+
+	public <T> ArrayList<T> Select(String sql, Class<T> tClass) throws SQLException, NoSuchFieldException, IllegalAccessException, NoSuchMethodException, InvocationTargetException, InstantiationException {
+		this._sql = sql;
+		this._statement = this._connection.createStatement();
+		var results = this._statement.executeQuery(this._sql);
+		return MapResults(tClass, results);
+	}
+
+	public int Insert(String Table, @NonNull HashMap<String, String> Fields) throws SQLException {
+		StringBuilder values = new StringBuilder();
+		int x = 1;
+		for (var key : Fields.entrySet()) {
+
+			values.append("?");
+			if (x < Fields.size())
+				values.append(",");
+			x++;
+		}
+		this._sql = "INSERT INTO %s (%s) values (%s)".formatted(Table, String.join(",", Fields.keySet()), values.toString());
+		System.out.println(this._sql);
+
+		var prepareStatement = this._connection.prepareStatement(this._sql);
+		x = 1;
+		for (var key : Fields.entrySet()) {
+			prepareStatement.setString(x, key.getValue());
+			x++;
+		}
+		int result = prepareStatement.executeUpdate();
+		System.out.println(result);
+		return result;
+
+	}
+
+	public int Update() throws SQLException {
+		this._statement = this._connection.createStatement();
+		return this._statement.executeUpdate(this._sql);
+	}
+
+	public int delete() throws SQLException {
+		this._statement = this._connection.createStatement();
+		return this._statement.executeUpdate(this._sql);
+	}
 
 
 	private DB() throws Exception {
@@ -30,39 +96,24 @@ public class DB {
 		this._connection = DriverManager.getConnection(this._url);
 	}
 
-	public static DB GetInstance() throws Exception {
-		if (_instance == null)
-			_instance = new DB();
-		return _instance;
-	}
+	private <T> ArrayList<T> MapResults(Class<T> tClass, ResultSet results) throws SQLException, InstantiationException, IllegalAccessException, InvocationTargetException, NoSuchMethodException, NoSuchFieldException {
+		var list = new ArrayList<T>();
 
-	public int CreateTable(@NonNull String TableName, @NonNull HashMap<String, String> Fields) {
-		this._sql = "CREATE TABLE " + TableName + " (";
-		for (var key : Fields.entrySet()) {
-			this._sql += "%s %s,".formatted(key.getKey(), key.getValue());
+		while (results.next()) {
+			T record = tClass.getDeclaredConstructor().newInstance();
+			for (var i = 0; i < results.getMetaData().getColumnCount(); i++) {
+				Class type = record.getClass();
+				Field prop = type.getField(results.getMetaData().getColumnName(i + 1));
+				prop.set(record, prop.getType().cast(results.getObject(i + 1)));
+			}
+			list.add(record);
 		}
-		return 0;
+		return list;
 	}
 
-	public <T> List<T> Select() {
-		return null;
+	private List<?> Query(){
+		return List.of(new Image());
 	}
-
-	public int Insert(String Table,@NonNull HashMap<String, String> Fields) {
-		this._sql = "INSERT INTO %".formatted(Table);
-//		Fields.forEach();
-
-		return 0;
-	}
-
-	public int Update() {
-		return 0;
-	}
-
-	public int delete() {
-		return 0;
-	}
-
 
 }
 

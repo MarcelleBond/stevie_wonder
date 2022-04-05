@@ -4,6 +4,8 @@
 
 package Views;
 
+import Models.OCR;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -20,20 +22,28 @@ public class ImageView extends JPanel {
 
 	private static final int IMAGE_HEIGHT = 188;
 	private static final int IMAGE_WIDTH = 288;
+	private String path;
+
 
 	public ImageView(File image) {
 		initComponents();
 		try {
 			this.ImageNameValue.setText(image.getName());
 			this.ImageView.setIcon(ResizeImage(image));
-			this.ImageSizeValue.setText(Long.toString(Files.size(image.toPath())  / 1024) + "KB");
+			this.ImageSizeValue.setText(Files.size(image.toPath()) / 1024 + "KB");
+			this.path = image.getPath();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
 	private void GetText(ActionEvent e) {
-		// TODO add your code here
+		var ocr = new OCR();
+		try {
+			ocr.GetText(this.path);
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
 	}
 
 	private void initComponents() {
@@ -55,12 +65,11 @@ public class ImageView extends JPanel {
 		setPreferredSize(new Dimension(300, 400));
 		setAlignmentX(0.0F);
 		setAlignmentY(0.0F);
-		setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border.
-		EmptyBorder(0,0,0,0), "JF\u006frmDes\u0069gner \u0045valua\u0074ion",javax.swing.border.TitledBorder.CENTER,javax.swing
-		.border.TitledBorder.BOTTOM,new java.awt.Font("D\u0069alog",java.awt.Font.BOLD,12),
-		java.awt.Color.red), getBorder())); addPropertyChangeListener(new java.beans.PropertyChangeListener()
-		{@Override public void propertyChange(java.beans.PropertyChangeEvent e){if("\u0062order".equals(e.getPropertyName()))
-		throw new RuntimeException();}});
+		setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(0
+		,0,0,0), "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn",javax.swing.border.TitledBorder.CENTER,javax.swing.border.TitledBorder.BOTTOM
+		,new java.awt.Font("Dia\u006cog",java.awt.Font.BOLD,12),java.awt.Color.red),
+		 getBorder())); addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void propertyChange(java.beans.PropertyChangeEvent e
+		){if("\u0062ord\u0065r".equals(e.getPropertyName()))throw new RuntimeException();}});
 
 		//---- NameLable ----
 		NameLable.setText("Image Name");
@@ -107,7 +116,6 @@ public class ImageView extends JPanel {
 			//---- ImageTextValue ----
 			ImageTextValue.setLineWrap(true);
 			ImageTextValue.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-			ImageTextValue.setText("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.");
 			TextScrollPane.setViewportView(ImageTextValue);
 		}
 
