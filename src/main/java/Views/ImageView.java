@@ -4,47 +4,18 @@
 
 package Views;
 
-import Models.OCR;
-
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
 
 /**
  * @author Tyler
  */
 public class ImageView extends JPanel {
 
-	private static final int IMAGE_HEIGHT = 188;
-	private static final int IMAGE_WIDTH = 288;
-	private String path;
-
-
-	public ImageView(File image) {
+	public ImageView() {
 		initComponents();
-		try {
-			this.ImageNameValue.setText(image.getName());
-			this.ImageView.setIcon(ResizeImage(image));
-			this.ImageSizeValue.setText(Files.size(image.toPath()) / 1024 + "KB");
-			this.path = image.getPath();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 	}
 
-	private void GetText(ActionEvent e) {
-		var ocr = new OCR();
-		try {
-			ocr.GetText(this.path);
-		} catch (IOException ex) {
-			ex.printStackTrace();
-		}
-	}
 
 	private void initComponents() {
 		// JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
@@ -66,10 +37,12 @@ public class ImageView extends JPanel {
 		setAlignmentX(0.0F);
 		setAlignmentY(0.0F);
 		setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(0
-		,0,0,0), "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn",javax.swing.border.TitledBorder.CENTER,javax.swing.border.TitledBorder.BOTTOM
-		,new java.awt.Font("Dia\u006cog",java.awt.Font.BOLD,12),java.awt.Color.red),
-		 getBorder())); addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void propertyChange(java.beans.PropertyChangeEvent e
-		){if("\u0062ord\u0065r".equals(e.getPropertyName()))throw new RuntimeException();}});
+				, 0, 0, 0), "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BOTTOM
+				, new java.awt.Font("Dia\u006cog", java.awt.Font.BOLD, 12), java.awt.Color.red),
+				getBorder()));
+		addPropertyChangeListener(e -> {
+			if ("\u0062ord\u0065r".equals(e.getPropertyName())) throw new RuntimeException();
+		});
 
 		//---- NameLable ----
 		NameLable.setText("Image Name");
@@ -108,7 +81,6 @@ public class ImageView extends JPanel {
 		GetTextButton.setMaximumSize(new Dimension(78, 24));
 		GetTextButton.setMinimumSize(new Dimension(78, 24));
 		GetTextButton.setPreferredSize(new Dimension(78, 24));
-		GetTextButton.addActionListener(e -> GetText(e));
 
 		//======== TextScrollPane ========
 		{
@@ -122,46 +94,46 @@ public class ImageView extends JPanel {
 		GroupLayout layout = new GroupLayout(this);
 		setLayout(layout);
 		layout.setHorizontalGroup(
-			layout.createParallelGroup()
-				.addGroup(layout.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(layout.createParallelGroup()
-						.addComponent(TextScrollPane)
-						.addComponent(ImageView, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+				layout.createParallelGroup()
 						.addGroup(layout.createSequentialGroup()
-							.addGroup(layout.createParallelGroup()
-								.addComponent(Sizelabel, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
-								.addComponent(ImageTextlabel, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
-								.addComponent(NameLable, GroupLayout.PREFERRED_SIZE, 78, GroupLayout.PREFERRED_SIZE))
-							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-							.addGroup(layout.createParallelGroup()
-								.addComponent(ImageSizeValue, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(ImageNameValue, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addGroup(layout.createSequentialGroup()
-									.addGap(126, 126, 126)
-									.addComponent(GetTextButton, GroupLayout.PREFERRED_SIZE, 78, GroupLayout.PREFERRED_SIZE)))))
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+								.addContainerGap()
+								.addGroup(layout.createParallelGroup()
+										.addComponent(TextScrollPane)
+										.addComponent(ImageView, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addGroup(layout.createSequentialGroup()
+												.addGroup(layout.createParallelGroup()
+														.addComponent(Sizelabel, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
+														.addComponent(ImageTextlabel, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
+														.addComponent(NameLable, GroupLayout.PREFERRED_SIZE, 78, GroupLayout.PREFERRED_SIZE))
+												.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+												.addGroup(layout.createParallelGroup()
+														.addComponent(ImageSizeValue, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+														.addComponent(ImageNameValue, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+														.addGroup(layout.createSequentialGroup()
+																.addGap(126, 126, 126)
+																.addComponent(GetTextButton, GroupLayout.PREFERRED_SIZE, 78, GroupLayout.PREFERRED_SIZE)))))
+								.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		layout.setVerticalGroup(
-			layout.createParallelGroup()
-				.addGroup(layout.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(ImageView, GroupLayout.PREFERRED_SIZE, 188, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addGroup(layout.createParallelGroup()
-						.addComponent(NameLable, GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)
-						.addComponent(ImageNameValue, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-						.addComponent(Sizelabel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(ImageSizeValue, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-					.addGroup(layout.createParallelGroup()
-						.addComponent(ImageTextlabel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(GetTextButton, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(TextScrollPane, GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
-					.addContainerGap())
+				layout.createParallelGroup()
+						.addGroup(layout.createSequentialGroup()
+								.addContainerGap()
+								.addComponent(ImageView, GroupLayout.PREFERRED_SIZE, 188, GroupLayout.PREFERRED_SIZE)
+								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+								.addGroup(layout.createParallelGroup()
+										.addComponent(NameLable, GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)
+										.addComponent(ImageNameValue, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+								.addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+										.addComponent(Sizelabel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(ImageSizeValue, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+								.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+								.addGroup(layout.createParallelGroup()
+										.addComponent(ImageTextlabel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(GetTextButton, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE))
+								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+								.addComponent(TextScrollPane, GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+								.addContainerGap())
 		);
 		// JFormDesigner - End of component initialization  //GEN-END:initComponents
 	}
@@ -171,19 +143,13 @@ public class ImageView extends JPanel {
 	private JLabel NameLable;
 	private JLabel Sizelabel;
 	private JLabel ImageTextlabel;
-	private JLabel ImageNameValue;
-	private JLabel ImageSizeValue;
-	private JLabel ImageView;
-	private JButton GetTextButton;
+	public JLabel ImageNameValue;
+	public JLabel ImageSizeValue;
+	public JLabel ImageView;
+	public JTextArea ImageTextValue;
+	public JButton GetTextButton;
 	private JScrollPane TextScrollPane;
-	private JTextArea ImageTextValue;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 
-	// Custom Private Methods
-	public ImageIcon ResizeImage(File image) throws IOException {
-		BufferedImage bufferedImage = ImageIO.read(image);
-		Image newImage = bufferedImage.getScaledInstance(IMAGE_WIDTH, IMAGE_HEIGHT,Image.SCALE_SMOOTH);
-		return new ImageIcon(newImage);
-	}
 
 }

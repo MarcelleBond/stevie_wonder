@@ -4,43 +4,21 @@
 
 package Views;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.EmptyBorder;
-import javax.swing.border.TitledBorder;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.io.File;
 
 /**
  * @author Tyler
  */
 public class MainView extends JPanel {
-	
-	private JFileChooser fileChooser;
-	
+
+
+
 	public MainView() {
 		initComponents();
-		this.fileChooser = new JFileChooser();
-		this.fileChooser.setAcceptAllFileFilterUsed(false);
-		this.fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Images",ImageIO.getReaderFileSuffixes()));
-		this.fileChooser.setMultiSelectionEnabled(true);
 		MainScrollPane.getViewport().add(ListPane);
 	}
 
-	private void AddImages(ActionEvent e) {
-		if (fileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){
-			File[] files  = fileChooser.getSelectedFiles();
-			for (File file: files) {
-					System.out.println(file.toPath());
-					ListPane.add(new ImageView(file));
-			}
-			validate();
-			repaint();
-		}
-	}
 
 	private void initComponents() {
 		// JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
@@ -57,12 +35,10 @@ public class MainView extends JPanel {
 		setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border .EmptyBorder ( 0
 		, 0 ,0 , 0) ,  "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn" , javax. swing .border . TitledBorder. CENTER ,javax . swing. border .TitledBorder . BOTTOM
 		, new java. awt .Font ( "Dia\u006cog", java .awt . Font. BOLD ,12 ) ,java . awt. Color .red ) ,
-		 getBorder () ) );  addPropertyChangeListener( new java. beans .PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e
-		) { if( "\u0062ord\u0065r" .equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;} } );
+		 getBorder () ) );  addPropertyChangeListener(e -> { if( "\u0062ord\u0065r" .equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;});
 
 		//---- AddImagesButton ----
 		AddImagesButton.setText("ADD IMAGES");
-		AddImagesButton.addActionListener(e -> AddImages(e));
 
 		//======== MainScrollPane ========
 		{
@@ -110,9 +86,9 @@ public class MainView extends JPanel {
 
 	// JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
 	// Generated using JFormDesigner Evaluation license - Tyler
-	private JButton AddImagesButton;
-	private JScrollPane MainScrollPane;
-	private JPanel ListPane;
-	private JButton GetAllTextButton;
+	public JButton AddImagesButton;
+	public JScrollPane MainScrollPane;
+	public JPanel ListPane;
+	public JButton GetAllTextButton;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }
