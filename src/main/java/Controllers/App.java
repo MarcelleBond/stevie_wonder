@@ -26,10 +26,10 @@ public class App {
 			JFrame frame = new JFrame();
 
 			frame.setContentPane(view.getView());
-			view.loadFromDB();
 			frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 			frame.pack();
 			frame.setVisible(true);
+			view.loadFromDB();
 		} catch (Exception ex) {
 			System.err.println(ex.getMessage() + Arrays.toString(ex.getStackTrace()));
 		}

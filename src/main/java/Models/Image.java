@@ -26,7 +26,7 @@ public class Image {
 	public String ImageText;
 	public String ImageSize;
 	public Integer GotText;
-	private DB _db;
+	private DB _db ;
 	private static final int IMAGE_HEIGHT = 188;
 	private static final int IMAGE_WIDTH = 288;
 
@@ -81,19 +81,24 @@ public class Image {
 				put("ImageName", ImageName);
 				put("ImagePath", ImagePath);
 				put("ImageSize", ImageSize);
+				put("GotText", "0");
 			}
 		});
 	}
 
 	private void saveText(){
 		try {
+			this._db = DB.GetInstance();
 			this._db.Update("Images", new HashMap<>() {{
 				put("ImageText", ImageText);
 				put("GotText", "1");
 			}}, "=", new HashMap<>() {{
 				put("ImageID", ImageID.toString() );
 			}});
+			this.GotText = 1;
 		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

@@ -4,6 +4,7 @@ package Models;
 import lombok.NonNull;
 
 import java.io.FileInputStream;
+import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.*;
@@ -104,7 +105,7 @@ public class DB {
 
 	private DB() throws Exception {
 		Properties prop = new Properties();
-		FileInputStream config = new FileInputStream("src/config.properties");
+		InputStream config = getClass().getClassLoader().getResourceAsStream("config.properties");
 		prop.load(config);
 		String _url = prop.getProperty("db.name");
 		if (_url == null)
