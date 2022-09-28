@@ -28,12 +28,13 @@ jobs:
         mvn -B package --file pom.xml
         mkdir staging && cp target/*jar-with-dependencies.jar staging
 
-    - name: set up cache for Maven
-      uses: actions/cache@2 
+    - name: Cache local Maven repository
+      uses: actions/cache@v3
       with:
-        path: ~/.m2
-        key: ${{ runner.os }}-m2-${{ hasFiles('**/pom.xml') }}
-        restore-keys: ${{ runner.os }}-m2
+        path: ~/.m2/repository
+        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+        restore-keys: |
+          ${{ runner.os }}-maven-
         
     - name: Create release
       id: create_release
