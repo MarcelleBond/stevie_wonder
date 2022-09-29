@@ -48,7 +48,7 @@ jobs:
 #         prerelease: false
     
     - name: check directories
-      run: ls -al
+      run: ls -Ral
       
 #     - name: Upload Release Asset
 #       id: upload-release-asset 
