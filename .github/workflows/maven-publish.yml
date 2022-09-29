@@ -58,6 +58,6 @@ jobs:
         TAP_GITHUB_TOKEN: ${{ secrets.TAP_GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-        asset_path: ./staging/
+        asset_path: ./staging/stevie_wonder-1.0-SNAPSHOT-jar-with-dependencies.jar
         asset_name: Stevie_wonder
         asset_content_type: application/jar
