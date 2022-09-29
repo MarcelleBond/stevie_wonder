@@ -5,6 +5,7 @@ name: Maven Package
 
 on:
   push:
+    branches: [ master ]
     tags: ['v*.*.*']
 
   workflow_dispatch:
@@ -46,6 +47,8 @@ jobs:
         draft: false
         prerelease: false
     
+    - name: list files
+      run: ls -al
       
     - name: Upload Release Asset
       id: upload-release-asset 
