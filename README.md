@@ -1,4 +1,4 @@
-# Stevie Wonder ![Build Status](https://github.com/MarcelleBond/stevie_wonder/blob/master/.github/workflows/maven-publish.yml/badge.svg)
+# Stevie Wonder ![Build Status](https://github.com/MarcelleBond/stevie_wonder/actions/workflows/maven-publish.yml/badge.svg)
 
 Stevie Wonder is an OCR desktop application written in Java, using JFormDesigner for the UI. This OCR app connects to Google Cloud Vision using Maven libraries and uses an SQLite database to store the extracted text.
 
